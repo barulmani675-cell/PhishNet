@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PhishNet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>PhishNet</h1>
+
+        <p>AI Based Phishing Detection System</p>
+
+        <form action="/predict" method="post">
+
+            <input type="text" name="url"
+                placeholder="Enter Website URL" required>
+
+            <button type="submit">
+                Check URL
+            </button>
+
+        </form>
+
+        <h2>{{ prediction_text }}</h2>
+
+    </div>
+
+</body>
+</html>
