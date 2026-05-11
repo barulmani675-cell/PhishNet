@@ -1,41 +1,128 @@
-body{
-    background:#0f172a;
-    font-family:Arial;
-    color:white;
-    text-align:center;
-    padding-top:100px;
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background: #0f1117;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    overflow: hidden;
 }
 
-.container{
-    width:500px;
-    margin:auto;
-    background:#1e293b;
-    padding:40px;
-    border-radius:15px;
+.container {
+
+    position: relative;
+    z-index: 1;
+
+    width: 420px;
+    margin: 100px auto;
+    background: #1a1d29;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 20px #00ff88;
 }
 
-h1{
-    font-size:40px;
+h1 {
+    color: #00ff88;
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-input{
-    width:80%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    margin-top:20px;
+p {
+    color: #bbbbbb;
+    margin-bottom: 30px;
 }
 
-button{
-    padding:12px 20px;
-    margin-top:20px;
-    border:none;
-    border-radius:8px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background: #2a2f45;
+    color: white;
 }
 
-button:hover{
-    background:#1d4ed8;
+input:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px #00ff88;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #00ff88;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00cc6a;
+    transform: scale(1.03);
+}
+
+h2 {
+    margin-top: 25px;
+    color: #00ff88;
+}
+.loader {
+    border: 5px solid #2a2f45;
+    border-top: 5px solid #00ff88;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.background-animation {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        linear-gradient(rgba(0,255,136,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.08) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    animation: moveGrid 5s linear infinite;
+
+    z-index: 0;
+}
+
+@keyframes moveGrid {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(40px);
+    }
 }

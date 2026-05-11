@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhishNet</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
+    <div class="background-animation"></div>
 
     <div class="container">
 
@@ -14,20 +19,46 @@
 
         <p>AI Based Phishing Detection System</p>
 
-        <form action="/predict" method="post">
+        <form action="/predict" method="POST" onsubmit="showLoading()">
 
-            <input type="text" name="url"
-                placeholder="Enter Website URL" required>
+    <input
+        type="text"
+        name="url"
+        placeholder="Enter Website URL"
+        required>
 
-            <button type="submit">
-                Check URL
-            </button>
+    <button type="submit" id="scanBtn">
+        Check URL
+    </button>
 
-        </form>
+</form>
 
-        <h2>{{ prediction_text }}</h2>
+<div id="loading" style="display:none; margin-top:20px;">
+
+    <p>🔍 Scanning URL...</p>
+
+    <div class="loader"></div>
+
+</div>
+
+        {% if prediction_text %}
+
+            <h2>
+                {{ prediction_text }}
+            </h2>
+
+        {% endif %}
 
     </div>
+<script>
 
+function showLoading() {
+
+    document.getElementById("loading").style.display = "block";
+
+    document.getElementById("scanBtn").innerHTML = "Scanning...";
+}
+
+</script>
 </body>
 </html>
